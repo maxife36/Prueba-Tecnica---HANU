@@ -35,13 +35,15 @@ export function Card({ suit, rank, tableWidth, storageController }: Card) {
   };
 
   function handlerOnClick() {
-    const { deck1, setDeck1, deck2, setDeck2, deck3, setDeck3 } = storageController;
+    const { deck0, setDeck0, deck1, setDeck1, deck2, setDeck2, deck3, setDeck3 } = storageController;
 
     if (currentDeck >= 2) {
       setCurrentDeck(0);
     } else {
       setCurrentDeck((currentDeck + 1) as deckNumber);
     }
+
+
   }
 
   return (

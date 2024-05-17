@@ -17,6 +17,8 @@ type cardId = `${deckRank}-${deckSuit}`
 export type deckStructure = cardId[]
 
 export type DecksLSHook = {
+    deck0: DeckStructure;
+    setDeck0: React.Dispatch<React.SetStateAction<DeckStructure>>;
     deck1: DeckStructure;
     setDeck1: React.Dispatch<React.SetStateAction<DeckStructure>>;
     deck2: DeckStructure;
