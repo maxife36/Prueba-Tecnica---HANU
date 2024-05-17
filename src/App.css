@@ -1,0 +1,29 @@
+html {
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    margin: 0;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
