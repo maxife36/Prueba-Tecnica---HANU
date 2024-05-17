@@ -22,9 +22,18 @@ export function Card({ suit, rank }: Card) {
     const rankName: number | string = isFaceCard? FACE_CARDS[rank] : rank;
     
     const bodyIcon: number[] = new Array(isFaceCard? 1: rank).fill(0);
-    
+
+    const width:number = 200
+
+    const containerStyle = {
+        width: `${width}px`,
+        height: `${width * 1.4}px`,
+        padding: `${width * 0.21}px ${width * 0.16}px`,
+        fontSize: `${width * 0.035}px`
+    }
+
   return (
-    <article className={`card-conatiner suit-${suit}`}>
+    <article className={`card-conatiner suit-${suit}`} style={containerStyle}>
       <div className="corner top-left">
         <span>{rankName}</span>
         <span>{SUIT[suit]}</span>

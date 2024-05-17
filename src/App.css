@@ -4,9 +4,14 @@ html {
     font-size: 14px;
     margin: 0;
     background-color: #1e1e1e;
+}
+
+#root{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
 }
 
 *,

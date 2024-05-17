@@ -1,13 +1,13 @@
 .card-conatiner {
-    position: relative;
+    position: absolute;
     user-select: none;
     cursor: pointer;
-    width: 400px; /* width:height -> 1 : 1.4 */
-    height: 560px;
+    width: 100px; /* width:height -> 1 : 1.4 */
+    height: 140px;
     background-color: #ebebeb;
     border-radius: 10px;
-    padding: 15% 16%;
-    font-size: 100%; /* width:font-size -> 1 : 0.175 */
+    padding: 21px 16px; /* top/bottom 1:0.21  - left-right 1:016 */
+    font-size: 3.5px; /* width:font-size -> 1 : 0.035 */
 }
 
 .card-body-container{
