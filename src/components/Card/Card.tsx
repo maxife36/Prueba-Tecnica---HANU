@@ -35,9 +35,11 @@ export function Card({ suit, rank, tableWidth, storageController }: Card) {
   };
 
   function handlerOnClick() {
-    const { deck0, setDeck0, deck1, setDeck1, deck2, setDeck2, deck3, setDeck3 } = storageController;
+    const { deck0, setDeck0, deck1, setDeck1, deck2, setDeck2, deck3, setDeck3, deckNumbers } = storageController;
 
-    if (currentDeck >= 2) {
+    const resetDeckPosition = (deckNumbers === 3 && currentDeck >= 2) || (deckNumbers === 4 && currentDeck >= 3)
+
+    if (resetDeckPosition) {
       setCurrentDeck(0);
     } else {
       setCurrentDeck((currentDeck + 1) as deckNumber);

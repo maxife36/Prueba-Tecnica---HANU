@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { deckStructure } from "../types";
+import { type deckStructure, type numberOfDecks } from "../types";
 
-export function useDeksLocalStorage(initialDeck: deckStructure) {
+export function useDeksLocalStorage(initialDeck: deckStructure, deckNumbers: numberOfDecks) {
   const [deck0, setDeck0] = useState<deckStructure>(initialDeck);
   const [deck1, setDeck1] = useState<deckStructure>([]);
   const [deck2, setDeck2] = useState<deckStructure>([]);
@@ -49,6 +49,7 @@ export function useDeksLocalStorage(initialDeck: deckStructure) {
     deck0, setDeck0,
     deck1, setDeck1,
     deck2, setDeck2,
-    deck3, setDeck3
+    deck3, setDeck3,
+    deckNumbers
   }
 }
