@@ -1,5 +1,5 @@
 .card-conatiner {
-    position: absolute;
+    position: relative;
     user-select: none;
     cursor: pointer;
     width: 100px; /* width:height -> 1 : 1.4 */

@@ -15,7 +15,7 @@ const FACE_CARDS: { [key: string]: string } = {
   "13": "K",
 };
 
-export function Card({ suit, rank }: Card) {
+export function Card({ suit, rank, currentDeck, tableWidth }: Card) {
     
     const isFaceCard = !!FACE_CARDS[rank];
 
@@ -23,7 +23,7 @@ export function Card({ suit, rank }: Card) {
     
     const bodyIcon: number[] = new Array(isFaceCard? 1: rank).fill(0);
 
-    const width:number = 200
+    const width:number = tableWidth / 6
 
     const containerStyle = {
         width: `${width}px`,
@@ -33,7 +33,7 @@ export function Card({ suit, rank }: Card) {
     }
 
   return (
-    <article className={`card-conatiner suit-${suit}`} style={containerStyle}>
+    <article className={`card-conatiner suit-${suit} deck-${currentDeck}`} style={containerStyle}>
       <div className="corner top-left">
         <span>{rankName}</span>
         <span>{SUIT[suit]}</span>
