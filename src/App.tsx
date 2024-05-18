@@ -88,7 +88,7 @@ function App() {
       }
 
       setNewDeck(shuffleArray(newInitialDeck) as DeckStructure);
-
+      
       const { setInitialDeck } = storageController;
       setInitialDeck(newInitialDeck);
     }

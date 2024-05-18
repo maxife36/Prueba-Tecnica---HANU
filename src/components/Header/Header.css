@@ -68,10 +68,53 @@
 
 .ranks-container {
     width: 30%;
-    background-color: red;
+    flex-flow: row wrap;
+
+}
+
+.rank-title,
+.rank-option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.rank-option{
+    label{
+        position: relative;
+        top: -4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: #f8f8f8;
+        margin-left: 15px;
+        font-size: 22px;
+        border: 2px solid #cd0000;
+        color: #cd0000;
+    }
 }
 
 .reset-btn-container {
     flex-grow: 1;
-    background-color: blue;
+    button{
+        all: unset;
+        cursor: pointer;
+        letter-spacing: 4px;
+        background-color: #787878 ;
+        color: #fff;
+        width: 200px;
+        height: 40px;
+        font-size: 18px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px 3px #585858 ;
+        transition: all 0.2s ease-in-out;
+    }
+    button:hover{
+        letter-spacing: 5px;
+        box-shadow: 0 0 15px 1px #bcbcbc ; 
+    }
 }
