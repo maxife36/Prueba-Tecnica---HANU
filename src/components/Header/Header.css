@@ -1,0 +1,36 @@
+.header-container {
+    position: absolute;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    background-color: #929292;
+}
+
+.suits-container,
+.ranks-container,
+.reset-btn-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.suits-container {
+    width: 30%;
+    background-color: aqua;
+}
+
+.ranks-container {
+    width: 30%;
+    background-color: red;
+}
+
+.reset-btn-container {
+    flex-grow: 1;
+    background-color: blue;
+}

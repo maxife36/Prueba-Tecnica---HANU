@@ -1,5 +1,5 @@
 import "./Card.css";
-import { type Card, type deckNumber, type cardId, type DeckStructure, type numberOfDecks } from "../../types";
+import { type Card, type deckNumber, type cardId, type DeckStructure } from "../../types";
 import { useState } from "react";
 
 const SUIT = {
@@ -16,8 +16,9 @@ const FACE_CARDS: { [key: string]: string } = {
   "13": "K",
 };
 
-export function Card({ suit, rank, tableWidth, storageController }: Card) {
+export function Card({ suit, rank, tableWidth, storageController, zIndex }: Card) {
   const [currentDeck, setCurrentDeck] = useState<deckNumber>(0 as deckNumber);
+  const [isNewGame, setIsNewGame] = useState(true)
   // const [isComplete, setIsComplete] = useState<boolean>(false)
 
   const isFaceCard = !!FACE_CARDS[rank];
@@ -33,9 +34,11 @@ export function Card({ suit, rank, tableWidth, storageController }: Card) {
     height: `${width * 1.4}px`,
     padding: `${width * 0.21}px ${width * 0.16}px`,
     fontSize: `${width * 0.035}px`,
+    zIndex: `${zIndex}`
   };
 
   function handlerOnClick(e: React.MouseEvent<HTMLDivElement>) {
+    setIsNewGame(false)
     const { deck0, setDeck0, deck1, setDeck1, deck2, setDeck2, deck3, setDeck3, deckNumbers } = storageController;
 
     function updateControlls(deckNum: deckNumber): [DeckStructure, React.Dispatch<React.SetStateAction<DeckStructure>>] {
@@ -76,7 +79,7 @@ export function Card({ suit, rank, tableWidth, storageController }: Card) {
   }
 
   return (
-    <article className={`card-conatiner suit-${suit} deck-${currentDeck}`} style={containerStyle} onClick={handlerOnClick}>
+    <article className={`card-conatiner suit-${suit} deck-${isNewGame? 0 : currentDeck}`} style={containerStyle} onClick={handlerOnClick}>
       <div className="corner top-left">
         <span>{rankName}</span>
         <span>{SUIT[suit]}</span>

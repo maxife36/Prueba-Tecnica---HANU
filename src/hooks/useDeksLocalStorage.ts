@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
-import { type deckStructure, type numberOfDecks } from "../types";
+import { type DeckStructure, type numberOfDecks } from "../types";
 
-export function useDeksLocalStorage(initialDeck: deckStructure, deckNumbers: numberOfDecks) {
-  const [deck0, setDeck0] = useState<deckStructure>(initialDeck);
-  const [deck1, setDeck1] = useState<deckStructure>([]);
-  const [deck2, setDeck2] = useState<deckStructure>([]);
-  const [deck3, setDeck3] = useState<deckStructure>([]);
+export function useDeksLocalStorage(initDeck: DeckStructure, deckNumbers: numberOfDecks) {
+  const [initialDeck, setInitialDeck] = useState<DeckStructure>(initDeck);
+  const [deck0, setDeck0] = useState<DeckStructure>(initialDeck);
+  const [deck1, setDeck1] = useState<DeckStructure>([]);
+  const [deck2, setDeck2] = useState<DeckStructure>([]);
+  const [deck3, setDeck3] = useState<DeckStructure>([]);
 
   useEffect(() => {
+
     const savedDeck0 = localStorage.getItem("deck0");
     if (savedDeck0) {
       setDeck0(JSON.parse(savedDeck0));
@@ -30,6 +32,14 @@ export function useDeksLocalStorage(initialDeck: deckStructure, deckNumbers: num
   }, []);
 
   useEffect(() => {
+    setDeck0(initialDeck)
+    setDeck1([])
+    setDeck2([])
+    setDeck3([])
+    
+  }, [initialDeck]);
+
+  useEffect(() => {
     localStorage.setItem("deck0", JSON.stringify(deck0));
   }, [deck0]);
 
@@ -46,6 +56,7 @@ export function useDeksLocalStorage(initialDeck: deckStructure, deckNumbers: num
   }, [deck3]);
 
   return{
+    setInitialDeck,
     deck0, setDeck0,
     deck1, setDeck1,
     deck2, setDeck2,

@@ -12,12 +12,14 @@ export interface Card {
   rank: deckRank;
   tableWidth: number;
   storageController: DecksLSHook;
+  zIndex:number
 }
 
 export type cardId = `${deckRank}-${deckSuit}` | undefined;
 export type DeckStructure = cardId[];
 
 export type DecksLSHook = {
+  setInitialDeck: React.Dispatch<React.SetStateAction<DeckStructure>>;
   deck0: DeckStructure;
   setDeck0: React.Dispatch<React.SetStateAction<DeckStructure>>;
   deck1: DeckStructure;
