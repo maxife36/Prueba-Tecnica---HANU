@@ -8,7 +8,14 @@
     right: 0;
     width: 100vw;
     height: 10vh;
-    background-color: red;
+    background-color:#005cc8;
     opacity: 0;
     transition: all 0.5s linear;
+}
+
+.banner-container p{
+    font-size: 28px;
+    letter-spacing: 5px;
+    font-weight: bold;
+    color: #f8f8f8;
 }

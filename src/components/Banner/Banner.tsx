@@ -11,7 +11,7 @@ export function Banner({isComplete}:Props) {
 
     return (
         <section className="banner-container" style={displayStyle}>
-            <p>Usted Ha Ganado</p>
+            <p>🥳 ¡Usted Ha Ganado! 👏🏽 </p>
         </section>
     );
 }
