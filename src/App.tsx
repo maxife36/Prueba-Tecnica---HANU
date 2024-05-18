@@ -2,6 +2,7 @@ import "./App.css";
 import { Table } from "./components/Table/Table";
 import { Card } from "./components/Card/Card";
 import { Header } from "./components/Header/Header";
+import { Banner } from "./components/Banner/Banner";
 import { useDeksLocalStorage } from "./hooks/useDeksLocalStorage";
 import { type DecksLSHook, type numberOfDecks, type DeckStructure, type deckRank, type deckSuit, type cardId } from "./types";
 import { useState, useEffect, useRef } from "react";
@@ -103,6 +104,7 @@ function App() {
           return <Card key={`${cardId}-${index}`} suit={cardInfo[1] as deckSuit} rank={Number(cardInfo[0]) as deckRank} tableWidth={tableWidth} storageController={storageController} zIndex={index} />;
         })}
       </Table>
+      <Banner isComplete={isComplete}/>
     </>
   );
 }

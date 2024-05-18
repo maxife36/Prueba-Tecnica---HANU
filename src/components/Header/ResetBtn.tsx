@@ -5,7 +5,6 @@ type Props = {
 export function ResetBtn({newGameController}:Props){
 
     function handlerNewGAme(){
-
         const nextGame = newGameController[0] + 1
         newGameController[1](nextGame) 
     }
