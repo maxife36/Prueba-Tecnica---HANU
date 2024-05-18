@@ -7,6 +7,11 @@
     left: 0;
     width: 100vw;
     height: 10vh;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #013c10;
     background-color: #929292;
 }
 
@@ -22,7 +27,43 @@
 
 .suits-container {
     width: 30%;
-    background-color: aqua;
+}
+.suit-title,
+.suit-option{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+
+.suit-option{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    div{
+        position: relative;
+        width:100%;
+        flex-flow: row nowrap;
+        align-items:center;
+        justify-content: center;
+        
+        input{
+            position: relative;
+            top: 1px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 10px;
+        }
+        label{
+            position: relative;
+            top: -2px;
+        }
+    }    
 }
 
 .ranks-container {
