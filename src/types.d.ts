@@ -14,8 +14,8 @@ export interface Card {
   storageController: DecksLSHook;
 }
 
-type cardId = `${deckRank}-${deckSuit}`;
-export type deckStructure = cardId[];
+export type cardId = `${deckRank}-${deckSuit}` | undefined;
+export type DeckStructure = cardId[];
 
 export type DecksLSHook = {
   deck0: DeckStructure;

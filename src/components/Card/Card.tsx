@@ -1,5 +1,5 @@
 import "./Card.css";
-import { type Card, type deckNumber } from "../../types";
+import { type Card, type deckNumber, type cardId, type DeckStructure, type numberOfDecks } from "../../types";
 import { useState } from "react";
 
 const SUIT = {
@@ -18,6 +18,7 @@ const FACE_CARDS: { [key: string]: string } = {
 
 export function Card({ suit, rank, tableWidth, storageController }: Card) {
   const [currentDeck, setCurrentDeck] = useState<deckNumber>(0 as deckNumber);
+  // const [isComplete, setIsComplete] = useState<boolean>(false)
 
   const isFaceCard = !!FACE_CARDS[rank];
 
@@ -34,18 +35,44 @@ export function Card({ suit, rank, tableWidth, storageController }: Card) {
     fontSize: `${width * 0.035}px`,
   };
 
-  function handlerOnClick() {
+  function handlerOnClick(e: React.MouseEvent<HTMLDivElement>) {
     const { deck0, setDeck0, deck1, setDeck1, deck2, setDeck2, deck3, setDeck3, deckNumbers } = storageController;
 
-    const resetDeckPosition = (deckNumbers === 3 && currentDeck >= 2) || (deckNumbers === 4 && currentDeck >= 3)
+    function updateControlls(deckNum: deckNumber): [DeckStructure, React.Dispatch<React.SetStateAction<DeckStructure>>] {
+      let deck: DeckStructure = [...deck0];
+      let setDeck: React.Dispatch<React.SetStateAction<DeckStructure>> = setDeck0;
 
-    if (resetDeckPosition) {
-      setCurrentDeck(0);
-    } else {
-      setCurrentDeck((currentDeck + 1) as deckNumber);
+      if (deckNum === 1) {
+        deck = [...deck1];
+        setDeck = setDeck1;
+      } else if (deckNum === 2) {
+        deck = [...deck2];
+        setDeck = setDeck2;
+      } else if (deckNum === 3) {
+        deck = [...deck3];
+        setDeck = setDeck3;
+      }
+      return [deck, setDeck];
     }
 
+    const resetDeckPosition: boolean = (deckNumbers === 3 && currentDeck >= 2) || (deckNumbers === 4 && currentDeck >= 3);
 
+    /* Elimino la posicion inicial del naipe */
+    const [initDeck, initSetDeck] = updateControlls(currentDeck);
+    const cardID: cardId = initDeck.pop();
+    initSetDeck(initDeck);
+
+    /* Cambio de Deck al naipe - Actualizo currentDeck*/
+    const finalDeckNumber = resetDeckPosition ? 0 : ((currentDeck + 1) as deckNumber);
+    setCurrentDeck(finalDeckNumber);
+
+    /* Actualizo la posicion Final del naipe */
+    const [finalDeck, finalSetDeck] = updateControlls(finalDeckNumber);
+    finalDeck.push(cardID);
+    finalSetDeck(finalDeck);
+
+    /* Modifico posicion sobre el deck */
+    e.currentTarget.style.zIndex = `${finalDeck.length - 1}`;
   }
 
   return (
